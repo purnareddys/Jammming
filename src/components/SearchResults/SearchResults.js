@@ -1,15 +1,19 @@
 import React from "react";
+
 import "./SearchResults.css";
+
 import TrackList from "../TrackList/TrackList";
-const SearchResults = (props) => {
-  return (
-    <div>
+
+class SearchResults extends React.Component {
+  render() {
+    return (
       <div className="SearchResults">
         <h2>Results</h2>
-        {/* <!-- Add a TrackList component --> */}
-        <TrackList searchResults={props.searchResults} />
+        {console.log(this.props.searchResults)}
+        <TrackList tracks={this.props.searchResults} onAdd={this.props.onAdd} />
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
 export default SearchResults;
