@@ -3,24 +3,37 @@ import "./App.css";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
-function App() {
-  return (
-    <div>
-      <h1>
-        Ja<span className="highlight">mmm</span>ing
-      </h1>
-      <div className="App">
-        {/* <!-- Add a SearchBar component --> */}
-        <SearchBar />
-        <div className="App-playlist">
-          {/* <!-- Add a SearchResults component --> */}
-          <SearchResults />
-          {/* <!-- Add a Playlist component --> */}
-          <Playlist />
+class App extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
+      searchResults: [],
+      playlistName: "Randy orton",
+      playlistTracks: "Viper",
+    };
+  }
+  render() {
+    return (
+      <div>
+        <h1>
+          Ja<span className="highlight">mmm</span>ing
+        </h1>
+        <div className="App">
+          {/* <!-- Add a SearchBar component --> */}
+          <SearchBar />
+          <div className="App-playlist">
+            {/* <!-- Add a SearchResults component --> */}
+            <SearchResults searchResults={this.state.searchResults} />
+            {/* <!-- Add a Playlist component --> */}
+            <Playlist
+              playlistName={this.state.playlistName}
+              playlistTracks={this.state.playlistTracks}
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
